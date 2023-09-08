@@ -1,0 +1,25 @@
+.register-box{
+    position: relative;
+    width: 400px;
+    height: 700px;
+    background: transparent;
+    border: 2px solid rgb(189, 186, 186);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(15px);
+} 
+.register-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background: url(./bgregister.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    animation: animateBg 5s linear infinite;
+    margin-top: 40px;
+    margin-bottom: 90px;
+} 
