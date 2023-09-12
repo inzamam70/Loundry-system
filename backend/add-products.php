@@ -1,31 +1,3 @@
-<?php
-include_once("../dbconn.php");
-$id = $_GET["id"];
-if (isset($_POST['submit'])) {
-    $title = $_POST['title'];
-    $description = $_POST['description'];
-    $targetDir = "uploads/";
-    $targetFile = $targetDir . basename($_FILES["image"]["name"]);
-    $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
-    $image = $_FILES["image"];
-    $img_loc = $_FILES['image']['tmp_name'];
-    $img_name = $_FILES['image']['name'];
-    $path = "../uploads/" . $img_name;
-    move_uploaded_file($img_loc, '../uploads/' . $img_name);
-    $sql = "UPDATE sliders SET title='$title',description='$description',image='$path' WHERE id='$id'";
-    $result = mysqli_query($conn, $sql);
-    if ($result) {
-        header("location:sliders.php");
-    } else {
-        echo "<script>alert('Category Inserted Failed')</script>";
-    }
-}
-
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -131,50 +103,58 @@ if (isset($_POST['submit'])) {
 
             <div class="from-body">
                 <div class="title">
-                    <h1 class="title-item">Ceate Category</h1>
+                    <h1 class="title-item">Add Product</h1>
                 </div>
+                <?php
+                include_once "../dbconn.php";
+                if (isset($_POST['submit'])) {
+                    $category_id = $_POST['category_id'];
+                    $title = $_POST['title'];
+                    $price = $_POST['price'];
+                    $targetDir = "uploads/";
+                    $targetFile = $targetDir . basename($_FILES["image"]["name"]);
+                    $uploadOk = 1;
+                    $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+                    $image = $_FILES["image"];
+                    $img_loc = $_FILES['image']['tmp_name'];
+                    $img_name = $_FILES['image']['name'];
+                    $path = "../uploads/" . $img_name;
+                    move_uploaded_file($img_loc, $path);
+                    $sql = "INSERT INTO products (category_id, title, price, image) VALUES ('$category_id', '$title', '$price', '$path')";
+                    $result = mysqli_query($conn, $sql);
+                    if ($result) {
+                        echo "<script>alert('Product Added Successfully')</script>";
+                        echo "<script>window.location.href = './products.php'</script>";
+                    } else {
+                        echo "<script>alert('Product Added Failed')</script>";
+                        echo "<script>window.location.href = './add-products.php'</script>";
+                    }
+
+                }
+
+
+
+                ?>
 
                 <div class="form">
                     <form action="" class="form-item" method="post" enctype="multipart/form-data">
+                        <label for="category_id">Category</label>
+                        <select name="category_id" id="">
+                            <?php
+                            include_once "../dbconn.php";
+                            $sql = "SELECT * FROM categories";
+                            $result = mysqli_query($conn, $sql);
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                ?>
+                                <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
+                            <?php } ?>
+                        </select>
                         <label for="title">Title</label>
-                        <input type="text" name="title" class="form-control" value="
-                        <?php
-                        $sql = "SELECT * FROM sliders WHERE id='$id'";
-                        $result = mysqli_query($conn, $sql);
-                        if (mysqli_num_rows($result) > 0) {
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                echo $row['title'];
-                            }
-                        }
-
-                        ?>
-                        
-                        ">
-                        <label for="description">Description</label>
-                        <input type="text" name="description" class="form-control" value="
-                        <?php
-                        $sql = "SELECT * FROM sliders WHERE id='$id'";
-                        $result = mysqli_query($conn, $sql);
-                        if (mysqli_num_rows($result) > 0) {
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                echo $row['description'];
-                            }
-                        }
-                        ?>
-                        ">
+                        <input type="text" name="title" class="form-control" placeholder="Enter Title">
+                        <label for="description">Price</label>
+                        <input type="text" name="price" class="form-control" placeholder="Enter Price">
                         <label for="image">Image</label>
-                        <input type="file" name="image" class="form-control" accept="image/*" value="
-                        <?php
-                        $sql = "SELECT * FROM sliders WHERE id='$id'";
-                        $result = mysqli_query($conn, $sql);
-                        if (mysqli_num_rows($result) > 0) {
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                echo $row['image'];
-                            }
-                        }
-                        ?>
-                        
-                        ">
+                        <input type="file" name="image" class="form-control" accept="image/*">
                         <input type="submit" class="btn btn-warning" value="Submit" name="submit" style="width:100%;">
                     </form>
                 </div>

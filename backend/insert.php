@@ -20,8 +20,14 @@ if (isset($_POST["submit"])) {
     $sql = "INSERT INTO sliders(title,description,image) VALUES('$title','$description','$path')";
     $result = mysqli_query($conn, $sql);
     if ($result) {
-        header("location:sliders.php");
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Success!</strong> Product Added Successfully.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                      </div>';
     } else {
-        echo "<script>alert('Slider Inserted Failed')</script>";
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error!</strong> Product Not Added.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>';
     }
 }

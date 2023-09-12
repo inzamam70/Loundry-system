@@ -61,14 +61,14 @@
         <a href="" class="dropdown">
             <div>
                 <i class="fa-brands fa-first-order"></i>
-                Orders
+                Product
             </div>
 
             <i class="fa fa-angle-right"></i>
         </a>
         <ul class="sub-menu">
-            <li><a href="./orders.php">Orders</a></li>
-            <li><a href="./add-order.php">Add Order</a></li>
+            <li><a href="./products.php">Products</a></li>
+            <li><a href="./add-products.php">Add Product</a></li>
         </ul>
     </li>
 
@@ -105,7 +105,7 @@
 
                 <div class="form">
                     <div class="from-btn">
-                        <a href="./createcategory.php" class="btn btn-success">Create Category</a>
+                        <a href="./createcategory.php" class="btn btn-success"><i class="fa-solid fa-plus"></i></a>
                         <a href="../admin.html" class="btn btn-danger">Back</a>
                     </div>
                     <div class="table-container">
@@ -141,8 +141,8 @@
                                         <td><img src="<?php echo $row['image'] ?> " width='100px' height='70px'></td>
                                         <td>
                                             <div class="action-btn">
-                                                <a href="./editcategory.php?id=<?= $row['id'] ?>" class="btn btn-primary">Edit</a>
-                                                <a href="./deletecategory.php?id=<?= $row['id'] ?>" class="btn btn-danger">Delete</a>
+                                                <a href="./editcategory.php?id=<?= $row['id'] ?>" class="btn btn-primary"><i class="fa-solid fa-pen-nib"></i></a>
+                                                <a href="./deletecategory.php?id=<?= $row['id'] ?>" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                                             </div>
                                         </td>
                                     </tr>

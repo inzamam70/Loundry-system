@@ -16,11 +16,11 @@
 
 <body>
     <!-- header -->
-    <?php include('./backend-component/header.php')?>
+    <?php include('./backend-component/header.php') ?>
 
     <!-- nav item -->
     <div class="template">
-    <div class="nav-item">
+        <div class="nav-item">
 
             <ul>
                 <li class="menu">
@@ -56,19 +56,19 @@
                         <li><a href="./createcategory.php">Add Category</a></li>
                     </ul>
                 </li>
-        
+
                 <li class="menu">
                     <a href="" class="dropdown">
                         <div>
                             <i class="fa-brands fa-first-order"></i>
-                            Orders
+                            Product
                         </div>
 
                         <i class="fa fa-angle-right"></i>
                     </a>
                     <ul class="sub-menu">
-                        <li><a href="./orders.php">Orders</a></li>
-                        <li><a href="./add-order.php">Add Order</a></li>
+                        <li><a href="./products.php">Products</a></li>
+                        <li><a href="./add-products.php">Add Product</a></li>
                     </ul>
                 </li>
 
@@ -89,10 +89,10 @@
                         <i class="fas fa-right-from-bracket"></i>
                         Logout</a>
                 </div>
-             
+
             </ul>
-            
-            
+
+
         </div>
 
 
@@ -105,7 +105,7 @@
 
                 <div class="form">
                     <div class="from-btn">
-                        <a href="./createslider.php" class="btn btn-success">Create Slider</a>
+                        <a href="./createslider.php" class="btn btn-success"><i class="fa-solid fa-plus"></i></a>
                         <a href="../admin.php" class="btn btn-danger">Back</a>
                     </div>
                     <div class="table-container">
@@ -124,28 +124,28 @@
                                 require_once('../dbconn.php');
                                 $sql = "SELECT * FROM `sliders`";
                                 $result = mysqli_query($conn, $sql);
-                                $id=1;
+                                $id = 1;
                                 while ($row = mysqli_fetch_assoc($result)) {
-                                    ?>
-                                   
-                                    
+                                ?>
+
+
                                     <tr>
-                                    <td><?php echo $id++ ?></td>
-                                    <td><?php echo $row['title'] ?></td>
-                                    <td><?php echo $row['description'] ?></td>
-                                    <td><img src="<?php echo $row['image']?> " width = '100px'  height = '70px'></td>
-                                    <td>
-                                    <div class="action-btn">
-                                            <a href="./editslider.php?id=<?php echo $row['id'] ?>" class="btn btn-primary">Edit</a>
-                                            <a href="./deleteslider.php?id=<?php echo $row['id'] ?>" class="btn btn-danger">Delete</a>
-                                           
-                                        </div>
-                                        
-                                    </td>
-                                </tr>
+                                        <td><?php echo $id++ ?></td>
+                                        <td><?php echo $row['title'] ?></td>
+                                        <td><?php echo $row['description'] ?></td>
+                                        <td><img src="<?php echo $row['image'] ?> " width='100px' height='70px'></td>
+                                        <td>
+                                            <div class="action-btn">
+                                                <a href="./editslider.php?id=<?php echo $row['id'] ?>" class="btn btn-primary"><i class="fa-solid fa-pen-nib"></i></a>
+                                                <a href="./deleteslider.php?id=<?php echo $row['id'] ?>" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+
+                                            </div>
+
+                                        </td>
+                                    </tr>
                                 <?php
-                            }
-                            ?>
+                                }
+                                ?>
                             </tbody>
 
                         </table>
@@ -170,7 +170,7 @@
 
 
     <!-- footer  -->
-    <?php include('./backend-component/footer.php')?>
+    <?php include('./backend-component/footer.php') ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>

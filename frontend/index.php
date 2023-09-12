@@ -84,7 +84,7 @@
         $sql = "SELECT * FROM categories";
         $result = mysqli_query($conn, $sql);
         $resultCheck = mysqli_num_rows($result);
-        $id = 10;
+       
         if ($resultCheck > 0) {
           while ($row = mysqli_fetch_assoc($result)) {
             echo '<div class="service-card" style="--clr:#ff3e7f;">';
@@ -94,7 +94,7 @@
             echo '<div class="service-content">';
             echo '<h2>' . $row['name'] . '</h2>';
             echo '<p>' . $row['description'] . '</p>';
-            echo '<a href="">See More</a>';
+            echo '<a href="product-item.php?id='.$row['id'].'">See More</a>';
             echo '</div>';
             echo '</div>';
           }
