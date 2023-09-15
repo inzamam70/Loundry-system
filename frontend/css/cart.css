@@ -1,0 +1,83 @@
+.shopping_cart table{
+    text-align: center;
+    width: 100%;
+}
+.shopping_cart table thead th{
+    padding: 1.5rem;
+    border: 1px solid #000000;
+    color: white;
+    background-color: #10273a;
+}
+.shopping_cart table tbody td{
+    padding: 1.5rem;
+    border: 1px solid #000000;
+    color: rgb(0, 0, 0);
+    
+}
+.shopping_cart table tbody td img{
+    width: 100px;
+    height: 100px;
+}
+.shopping_cart table tbody td a{
+    color: #10273a;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+.shopping_cart table tbody td a:hover{
+    color: #ff0000;
+    text-decoration: none;
+}
+.shopping_cart table tbody td .fa-trash{
+    color: #ff0000;
+    font-size: 1.3rem;
+    margin-right: 0.5rem;
+}
+.table_bottom {
+    background-color:#10273a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0 3rem 0;
+    color: white;
+}
+.bottom_btn {
+    color: var(--black);
+    font-size: 1.3rem;
+    background-color: var(--color4);
+    padding: 1rem;
+}
+.bottom_btn span {
+    color: green;
+}
+.delete_all_btn {
+    background-color: red;
+    color: var(--white);
+    font-size: 1.3rem;
+    padding: 1.5rem;
+}
+.delete_all_btn .fa-trash {
+    color: red;
+    margin-right: 0.5rem;
+}
+.quantity_box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.quantity_box input {
+    width: 40%;
+    padding: 0.5rem;
+  }
+  
+  .update_quantity {
+    color: white;
+    padding: 0.5rem;
+    background-color: #072227;
+    margin: 1rem 0;
+  }
+.update_quantity:hover {
+    color: #aefeff;
+}
+
+
+  

@@ -94,7 +94,7 @@
             echo '<div class="service-content">';
             echo '<h2>' . $row['name'] . '</h2>';
             echo '<p>' . $row['description'] . '</p>';
-            echo '<a href="product-item.php?id='.$row['id'].'">See More</a>';
+            echo '<a href="product-item.php?category_id='.$row['id'].'">See More</a>';
             echo '</div>';
             echo '</div>';
           }

@@ -111,12 +111,23 @@ if (!isset($_SESSION["id"])) {
 
         <div class="body">
             <h1>Laundry System</h1>
+            <?php 
+                include_once "dbconn.php";
+                $sql = "SELECT * FROM carts";
+                $result = mysqli_query($conn, $sql);
+                $count = mysqli_num_rows($result);
+
+                $sql2 = "SELECT * FROM products";
+                $result2 = mysqli_query($conn, $sql2);
+                $count2 = mysqli_num_rows($result2);
+
+            ?>
             <div class="card-body">
-                <a href="" class="btn btn-success "><i class="fa-solid fa-file" style="padding: 5px;"></i>New</a>
-                <a href="" class="btn btn-primary"><i class="fa-solid fa-spinner" style="padding: 5px;"></i>Progress</a>
+                <a href="" class="btn btn-success "><i class="fa-solid fa-file" style="padding: 5px;"></i>New <span><sup><?=$count2?></sup></span></a>
+                <a href="" class="btn btn-primary"><i class="fa-solid fa-spinner" style="padding: 5px;"></i>Progress <span><sup><?=$count?></sup></span></a>
                 <a href="" class="btn btn-danger"><i class="fa-solid fa-check" style="padding: 5px;"></i>Finish</a>
                 <a href="" class="btn btn-warning"><i class="fa-solid fa-circle-check"
-                        style="padding: 5px;"></i>Accepted</a>
+                        style="padding: 5px;"></i>Accepted </a>
             </div>
 
         </div>

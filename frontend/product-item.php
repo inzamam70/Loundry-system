@@ -30,8 +30,9 @@
             <div class="card-section">
              <?php 
              include_once "../dbconn.php";
-             
-             $sql = "SELECT * FROM products";
+             $categoryId = $_GET['category_id'];
+                $sql = "SELECT * FROM products WHERE category_id = $categoryId";
+
              $result = mysqli_query($conn, $sql);
              while($row = mysqli_fetch_assoc($result)){
                  
@@ -39,11 +40,11 @@
          
          ?>
 
-         <div class="card">
-             <div class="cardimg">
+         <div class="product-card">
+             <div class="card-img">
                  <img src="<?=$row['image']?>" alt="">
              </div>
-             <div class="card-content">
+             <div class="product-card-content">
                  <h3><?=$row['title']?></h3>
                  <p class="description">Price=<?=$row['price']?>/-</p>
                  <a href="" class="card-btn">Add to cart</a>
@@ -51,9 +52,6 @@
          </div>
 
          <?php } ?>
-
-             
-             ?>
             </div>
 
 

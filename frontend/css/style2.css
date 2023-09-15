@@ -11,11 +11,22 @@ body{
     background: #3586ff;
     text-align: center;
     height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+   
 }
 .menu-item{
-    display: inline-flex;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
     list-style: none;
     color: #fff;
+
 }
 .menu-item li{
     width: 120px;
@@ -29,6 +40,14 @@ body{
 }
 .menu-item li a:hover{
     color: #000000;
+}
+.shop{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    color: #fff;
 }
 .menu-ber img{
     width: 50px;
@@ -316,7 +335,7 @@ body{
 	font-size: 20px;
 	color: #000;
 }
-.card{
+.product-card{
 	position: relative;
 	width: 320px;
 	height: 420px;
@@ -324,7 +343,7 @@ body{
 	border-radius: 20px;
 	overflow: hidden;
 }
-.card::before{
+.product-card::before{
 	content: '';
 	position: absolute;
 	top: -50%;
@@ -336,17 +355,17 @@ body{
 
 }
 
-.card::after{
-	content: '';
+.product-card::after{
+	content: 'Labuni';
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	font-weight: 600;
 	font-size: 6em;
-	color: rgba(0,0,0,0.1);
+	color: rgba(5, 5, 5, 0.233);
 
 }
-.cardimg{
+.card-img{
 	position: relative;
 	display: flex;
 	justify-content: center;
@@ -355,13 +374,13 @@ body{
 	padding-top: 20px;
 	z-index: 1;
 }
-.cardimg img{
+.card-img img{
     width: 200px;
     height: 200px;
     border-radius: 50%;
     border: 5px solid #fff;
 }
-.card-content{
+.product-card-content{
 	position: relative;
 	padding: 20px;
 	display: flex;
@@ -370,7 +389,7 @@ body{
 	flex-direction: column;
 	z-index: 1;
 }
-.card-content h3{
+.product-card-content h3{
 	font-size: 24px;
 	color: #fff;
 	font-weight: 500;
@@ -403,3 +422,4 @@ body{
 }
 
 /* service end */
+
