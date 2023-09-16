@@ -102,12 +102,20 @@ body {
     height: 35px;
     background: #2e0238;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 0 80px;
 }
 
 .header-item {
     color: white;
+    text-align: center;
+    padding: 3px;
 
+}
+.header-item a{
+    text-decoration: none;
+    color: white;
+   padding: 0 10px;
 }
 
 .footer {

@@ -132,7 +132,7 @@ if (isset($_GET['remove'])) {
                         echo " <div class='table_bottom'>
                 <a href='shop.php' class='bottom_btn' style='text-decoration: none;'>Continue Shopping</a>
                 <h3 class='bottom_btn'>Grand Total: $<Span>$grand_total/-</Span></h3>
-                <a href='checkout.php' class='bottom_btn' style='text-decoration: none;'>Proceed to checkout</a>
+                <a href='payment.php' class='bottom_btn' style='text-decoration: none;'>Proceed to checkout</a>
             </div>";
 
 

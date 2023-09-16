@@ -98,11 +98,11 @@ if (!isset($_SESSION["id"])) {
                         Help
                     </a>
                 </li>
-                <div class="log-menu">
+                <!-- <div class="log-menu">
                     <a href="./backend/logout.php" class="logout">
                         <i class="fas fa-right-from-bracket"></i>
                         Logout</a>
-                </div>
+                </div> -->
 
             </ul>
 

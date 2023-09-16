@@ -394,6 +394,7 @@ body{
 	color: #fff;
 	font-weight: 500;
 	text-transform: uppercase;
+    text-align: center;
 }
 .description{
 	font-size: 18px;
