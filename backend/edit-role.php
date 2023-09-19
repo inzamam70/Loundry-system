@@ -99,6 +99,7 @@
                         <li><a href="./add-products.php">Add Product</a></li>
                     </ul>
                 </li>
+
                 <li class="menu">
                     <a href="" class="dropdown">
                         <div>
@@ -130,17 +131,39 @@
 
             <div class="from-body">
                 <div class="title">
-                    <h1 class="title-item">Ceate Slider</h1>
+                    <h1 class="title-item">Add Product</h1>
                 </div>
+                <?php
+                include_once "../dbconn.php";
+                $id = $_GET['id'];
+                if(isset($_POST['submit'])){
+                    $name = $_POST['name'];
+                    $sql = "UPDATE roles SET name = '$name' WHERE id = '$id'";
+                    $result = mysqli_query($conn, $sql);
+                    if($result){
+                        echo "<script>alert('Role Updated Successfully')</script>";
+                        echo "<script>window.location.href='./roles.php'</script>";
+                    }else{
+                        echo "<script>alert('role updated Failed')</script>";
+                    }
+                }
+
+        
+                ?>
 
                 <div class="form">
-                    <form action="insert.php" class="form-item" method="post" enctype="multipart/form-data">
-                        <label for="title">Title</label>
-                        <input type="text" name="title" class="form-control" placeholder="Enter Title">
-                        <label for="description">Description</label>
-                        <input type="text" name="description" class="form-control" placeholder="Enter Description">
-                        <label for="image">Image</label>
-                        <input type="file" name="image" class="form-control" accept="image/*">
+                    <form action="" class="form-item" method="post" enctype="multipart/form-data">
+                        <label for="name">Role name</label>
+                        <input type="text" name="name" class="form-control" placeholder="Enter role" value="
+                        <?php 
+                            $sql = "SELECT * FROM roles WHERE id = '$id'";
+                            $result = mysqli_query($conn, $sql);
+                            while($row = mysqli_fetch_assoc($result)){
+                                echo $row['name'];
+                            }
+                        ?>
+                        
+                        ">
                         <input type="submit" class="btn btn-warning" value="Submit" name="submit" style="width:100%;">
                     </form>
                 </div>

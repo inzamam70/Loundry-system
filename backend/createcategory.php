@@ -48,6 +48,7 @@ if (isset($_POST['submit'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <link rel="stylesheet" href="./css/slider.css">
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -57,7 +58,31 @@ if (isset($_POST['submit'])) {
 
 <body>
     <!-- header -->
-    <?php include('./backend-component/header.php') ?>
+    <div class="header">
+        <div>
+            <img src="./image/londrylogo.png" alt="" class="img">
+        </div>
+        <h4 class="header-item">Admin DashBoard</h4>
+        <div class="header-item">
+            <?php 
+                
+                if(isset($_SESSION['id'])){
+                   $user_id = $_SESSION['id'];
+                }else{
+                    $user_id = "";
+                }
+                $sql = "SELECT * FROM users WHERE id = '$user_id'";
+                $result = mysqli_query($conn, $sql);
+                while($row = mysqli_fetch_assoc($result)){
+                   ?>
+                   <a href=""><i class="fa-solid fa-user"></i><?=$row['name']?></a>
+                     <?php
+                }
+            ?>
+            <a href="./logout.php"><i class="fa-solid fa-power-off"></i></a>
+            
+        </div>
+    </div>
 
     <!-- nav item -->
     <div class="template">
@@ -114,10 +139,18 @@ if (isset($_POST['submit'])) {
                 </li>
 
                 <li class="menu">
-                    <a href="">
-                        <i class="fas fa-gears"></i>
-                        Settings
+                    <a href="" class="dropdown">
+                        <div>
+                            <i class="fa-brands fa-first-order"></i>
+                            Setting
+                        </div>
+
+                        <i class="fa fa-angle-right"></i>
                     </a>
+                    <ul class="sub-menu">
+                        <li><a href="./users.php">Users</a></li>
+                        <li><a href="./roles.php">Roles</a></li>
+                    </ul>
                 </li>
                 <li class="menu">
                     <a href="">
@@ -125,11 +158,6 @@ if (isset($_POST['submit'])) {
                         Help
                     </a>
                 </li>
-                <div class="log-menu">
-                    <a href="./logout.php" class="logout">
-                        <i class="fas fa-right-from-bracket"></i>
-                        Logout</a>
-                </div>
 
             </ul>
 

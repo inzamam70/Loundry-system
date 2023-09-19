@@ -7,13 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <link rel="stylesheet" href="./css/slider.css">
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <title>Hello, world!</title>
 </head>
@@ -99,6 +96,7 @@
                         <li><a href="./add-products.php">Add Product</a></li>
                     </ul>
                 </li>
+
                 <li class="menu">
                     <a href="" class="dropdown">
                         <div>
@@ -119,7 +117,6 @@
                         Help
                     </a>
                 </li>
-
             </ul>
 
 
@@ -130,19 +127,58 @@
 
             <div class="from-body">
                 <div class="title">
-                    <h1 class="title-item">Ceate Slider</h1>
+                    <h1 class="title-item">Users</h1>
                 </div>
 
                 <div class="form">
-                    <form action="insert.php" class="form-item" method="post" enctype="multipart/form-data">
-                        <label for="title">Title</label>
-                        <input type="text" name="title" class="form-control" placeholder="Enter Title">
-                        <label for="description">Description</label>
-                        <input type="text" name="description" class="form-control" placeholder="Enter Description">
-                        <label for="image">Image</label>
-                        <input type="file" name="image" class="form-control" accept="image/*">
-                        <input type="submit" class="btn btn-warning" value="Submit" name="submit" style="width:100%;">
-                    </form>
+                    <div class="from-btn">
+                        <a href="../admin.php" class="btn btn-danger">Back</a>
+                    </div>
+                    <div class="table-container">
+                        <table class="table-content">
+                            <thead class="table-item">
+                                <tr>
+                                    <th>Sl</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone No</th>
+                                    <th>Address</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                require_once('../dbconn.php');
+                                $sql = "SELECT * FROM `users`";
+                                $result = mysqli_query($conn, $sql);
+                                $id = 1;
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                ?>
+
+
+                                    <tr>
+                                        <td><?php echo $id++ ?></td>
+                                        <td><?php echo $row['name'] ?></td>
+                                        <td><?php echo $row['email'] ?></td>
+                                        <td><?php echo $row['phone'] ?></td>
+                                        <td><?php echo $row['address'] ?></td>
+                                        <td>
+                                            <div class="action-btn">
+                                                <a href="./editslider.php?id=<?php echo $row['id'] ?>" class="btn btn-primary"><i class="fa-solid fa-pen-nib"></i></a>
+                                                <a href="./deleteslider.php?id=<?php echo $row['id'] ?>" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                <?php
+                                }
+                                ?>
+                            </tbody>
+
+                        </table>
+                    </div>
+
                 </div>
 
             </div>
@@ -164,9 +200,7 @@
     <!-- footer  -->
     <?php include('./backend-component/footer.php') ?>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 
 </html>

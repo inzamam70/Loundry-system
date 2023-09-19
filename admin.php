@@ -30,7 +30,31 @@ if (!isset($_SESSION["id"])) {
 
 <body>
     <!-- header -->
-    <?php include('./backend/backend-component/header.php') ?>
+    <div class="header">
+        <div>
+            <img src="./image/londrylogo.png" alt="" class="img">
+        </div>
+        <h4 class="header-item">Admin DashBoard</h4>
+        <div class="header-item">
+            <?php 
+                include_once "./dbconn.php";
+                if(isset($_SESSION['id'])){
+                   $user_id = $_SESSION['id'];
+                }else{
+                    $user_id = "";
+                }
+                $sql = "SELECT * FROM users WHERE id = '$user_id'";
+                $result = mysqli_query($conn, $sql);
+                while($row = mysqli_fetch_assoc($result)){
+                   ?>
+                   <a href=""><i class="fa-solid fa-user"></i><?=$row['name']?></a>
+                     <?php
+                }
+            ?>
+            <a href="./backend/logout.php"><i class="fa-solid fa-power-off"></i></a>
+            
+        </div>
+    </div>
 
     <!-- nav item -->
     <div class="template">
@@ -87,10 +111,18 @@ if (!isset($_SESSION["id"])) {
                 </li>
 
                 <li class="menu">
-                    <a href="">
-                        <i class="fas fa-gears"></i>
-                        Settings
+                    <a href="" class="dropdown">
+                        <div>
+                            <i class="fa-brands fa-first-order"></i>
+                            Setting
+                        </div>
+
+                        <i class="fa fa-angle-right"></i>
                     </a>
+                    <ul class="sub-menu">
+                        <li><a href="./backend/users.php">Users</a></li>
+                        <li><a href="">Roles</a></li>
+                    </ul>
                 </li>
                 <li class="menu">
                     <a href="">

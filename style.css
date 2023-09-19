@@ -151,8 +151,7 @@ body {
     flex-direction: column;
 }
 .btn{
-    padding: 30px;
-    
+
     border-radius: 10px;
-    border: none;
+    padding: 10px;
 }
