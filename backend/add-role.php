@@ -141,6 +141,7 @@
                     $result = mysqli_query($conn, $sql);
                     if ($result) {
                         echo "<script>alert('Role added successfully')</script>";
+                        echo "<script>window.location.href = './roles.php'</script>";
                     } else {
                         echo "<script>alert('Role added failed')</script>";
                     }

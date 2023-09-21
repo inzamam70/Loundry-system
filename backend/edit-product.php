@@ -166,6 +166,7 @@
                         <input type="text" name="title" class="form-control" value="
                         <?php 
                         include_once "../dbconn.php";
+            
                         $sql = "SELECT * FROM products WHERE id='$id'";
                         $result = mysqli_query($conn, $sql);
                         if(mysqli_num_rows($result) > 0){

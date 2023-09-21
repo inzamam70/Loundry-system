@@ -121,7 +121,7 @@ if (!isset($_SESSION["id"])) {
                     </a>
                     <ul class="sub-menu">
                         <li><a href="./backend/users.php">Users</a></li>
-                        <li><a href="">Roles</a></li>
+                        <li><a href="./backend/roles.php">Roles</a></li>
                     </ul>
                 </li>
                 <li class="menu">

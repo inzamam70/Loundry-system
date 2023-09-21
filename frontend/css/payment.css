@@ -4,30 +4,58 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
-body{
-    background-color: aliceblue;
+
+
+.payment-body{
+   display: flex;
+   flex-direction: row;
+   background-color: #ffffff;
+   align-items: center;
+   justify-content: center;
+   
+   
 }
-.wrapper{
+.payment-product img{
+    width: 200px;
+    height: 200px;
+    padding: 20px;
+}
+.payment-product{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: #fff;
     width: 500px;
     padding: 25px;
-    margin: 25px auto 0;
-    box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px;
+    margin-top: 80px;
+    margin-bottom: 140px;
+    height: 753px;
 }
-.wrapper h2{
+.payment-section{
+    background-color: #fff;
+    width: 500px;
+    padding: 25px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    margin-top: 80px;
+    margin-bottom: 140px;
+}
+.payment-section h2{
     background-color: #fcfcfc;
     color: #1a2e05;
     font-size: 24px;
     padding: 10px;
     margin-bottom: 20px;
     text-align: center;
-    border: 1px dotted #333;
+    border: 1px dotted #ff0000;
+    font-weight: 700;
 }
 h4{
     padding-bottom: 5px;
     color: #0f1d01;
 }
-.input-group{
+.payment-input-group{
     margin-bottom: 8px;
     width: 100%;
     position: relative;
@@ -35,13 +63,13 @@ h4{
     flex-direction: row;
     padding: 5px 0;
 }
-.input-box{
+.payment-input-box{
     width: 100%;
     margin-right: 12px;
     position: relative;
 
 }
-.input-box:last-child{
+.payment-input-box:last-child{
     margin-right: 0;
 }
 .name{
@@ -61,7 +89,7 @@ h4{
     box-shadow: 0 0 2px 1px #7ed32180;
     border: 1px solid #7ed321;
 }
-.input-box .icon{
+.payment-input-box .icon{
     width: 48px;
     display: flex;
     justify-content: center;
@@ -70,7 +98,7 @@ h4{
     top: 0px;
     left: 0px;
     bottom: 0px;
-    color: #333;
+    color: #030303;
     background-color: #f1f1f1;
     border-radius: 2px 0 0 2px;
     transition: 0.3s;
@@ -99,7 +127,7 @@ h4{
 .radio{
     display: none;
 }
-.input-box label{
+.payment-input-box label{
     width: 50%;
     padding: 13px;
     background-color: #fcfcfc;
@@ -108,13 +136,13 @@ h4{
     text-align: center;
     border: 1px solid #c0bfbf;
 }
-.input-box label:first-of-type{
+.payment-input-box label:first-of-type{
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     border-right: none;
 
 }
-.input-box label:last-of-type{
+.payment-input-box label:last-of-type{
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
 }
@@ -124,7 +152,7 @@ h4{
     transition: 0.5s;
 }
 
-.input-box .date{
+.payment-input-box .date{
     width: 100%;
     padding: 14px;
     text-align: center;
@@ -134,7 +162,7 @@ h4{
     border: 1px solid #c0bfbf;
     border-radius: 3px;
 }
-.input-box .date:focus{
+.payment-input-box .date:focus{
     border: 1px solid #7ed321;
     transition: 0.5s;
     text-align: center;
@@ -156,6 +184,6 @@ button{
 }
 button:hover{
     background-color: #060038;
-    border: 1px solid #7ed321;
     transition: 0.5s;
+    color: white;
 }
