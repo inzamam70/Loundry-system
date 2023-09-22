@@ -157,9 +157,9 @@ if (!isset($_SESSION["id"])) {
             <div class="card-body">
                 <a href="" class="btn btn-success "><i class="fa-solid fa-file" style="padding: 5px;"></i>New <span><sup><?=$count2?></sup></span></a>
                 <a href="" class="btn btn-primary"><i class="fa-solid fa-spinner" style="padding: 5px;"></i>Progress <span><sup><?=$count?></sup></span></a>
+                <a href="" class="btn btn-warning"><i class="fa-solid fa-circle-check" style="padding: 5px;"></i>Accepted </a>
                 <a href="" class="btn btn-danger"><i class="fa-solid fa-check" style="padding: 5px;"></i>Finish</a>
-                <a href="" class="btn btn-warning"><i class="fa-solid fa-circle-check"
-                        style="padding: 5px;"></i>Accepted </a>
+                
             </div>
 
         </div>

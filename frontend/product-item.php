@@ -34,10 +34,7 @@
                 $sql = "SELECT * FROM products WHERE category_id = $categoryId";
 
              $result = mysqli_query($conn, $sql);
-             while($row = mysqli_fetch_assoc($result)){
-                 
-
-         
+             while($row = mysqli_fetch_assoc($result)){  
          ?>
 
          <div class="product-card">

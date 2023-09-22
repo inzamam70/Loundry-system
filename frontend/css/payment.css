@@ -12,6 +12,7 @@
    background-color: #ffffff;
    align-items: center;
    justify-content: center;
+
    
    
 }
@@ -26,13 +27,61 @@
     justify-content: center;
     align-items: center;
     background-color: #fff;
-    width: 500px;
+    width: 100%;
     padding: 25px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px;
     margin-top: 80px;
     margin-bottom: 140px;
     height: 753px;
 }
+.payment-product h2{
+    background-color: #fcfcfc;
+    color: #1a2e05;
+    font-size: 24px;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    border: 1px dotted #ff0000;
+    font-weight: 700;
+}
+.payment-product table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+
+}
+.payment-product table tr{
+    border: 1px solid #050505;
+}
+.payment-product table th{
+    padding: 10px 0;
+    text-align: left;
+    font-weight: 600;
+    color: #333;
+    font-size: 16px;
+    border: 1px solid #020202;
+    text-align: center;
+    background: #569e0e;
+}
+.payment-product table td{
+    padding: 10px 0;
+    text-align: center;
+    font-weight: 600;
+    color: #333;
+    font-size: 16px;
+    border: 1px solid #020202;
+}
+.payment-product table td img{
+    width: 100px;
+    height: 100px;
+}
+.total h3{
+    font-weight: 600;
+    color: #062b02;
+    margin-bottom: 10px;
+
+}
+
 .payment-section{
     background-color: #fff;
     width: 500px;
