@@ -34,10 +34,11 @@ if(isset($_POST['add_to_cart'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>cart page</title>
+    <title>Smart Home Service</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style2.css">
+    <link rel="stylesheet" href="./css/shop.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -53,7 +54,7 @@ if(isset($_POST['add_to_cart'])){
                 <h1>Lets Shop</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
             </div>
-            <div class="card-section">
+            <div class="card-section-shop">
             <?php
             include_once "../dbconn.php";
             $sql = "SELECT * FROM products";
@@ -61,15 +62,15 @@ if(isset($_POST['add_to_cart'])){
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     ?>
-                    <div class="product-card">
+                    <div class="product-card-shop">
                         <form action="" method="post">
                             <input type="hidden" name="update_quantity_id" value="<?=$row['id']?>">
-                            <div class="card-img">
+                            <div class="card-img-shop">
                                 <img src="<?=$row['image']?>" alt="">
                             </div>
-                            <div class="product-card-content">
+                            <div class="product-card-content-shop">
                                 <h3><?=$row['title']?></h3>
-                                <p class="description">Price=<?=$row['price']?>/-</p>
+                                <p class="description-shop">Price=<?=$row['price']?>/-</p>
                                 <input type="hidden" name="product_name" value="<?=$row['title']?>">
                                 <input type="hidden" name="product_price" value="<?=$row['price']?>">
                                 <input type="hidden" name="product_image" value="<?=$row['image']?>">

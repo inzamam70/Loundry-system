@@ -6,7 +6,7 @@
     padding: 1.5rem;
     border: 1px solid #000000;
     color: white;
-    background-color: #10273a;
+    background-color: #032a4b;
 }
 .shopping_cart table tbody td{
     padding: 1.5rem;
@@ -33,7 +33,7 @@
     margin-right: 0.5rem;
 }
 .table_bottom {
-    background-color:#10273a;
+    background-color:#032a4b;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -47,7 +47,7 @@
     padding: 1rem;
 }
 .bottom_btn span {
-    color: green;
+    color: rgb(255, 1, 1);
 }
 .delete_all_btn {
     background-color: red;
@@ -72,7 +72,7 @@
   .update_quantity {
     color: white;
     padding: 0.5rem;
-    background-color: #072227;
+    background-color: #053c7a;
     margin: 1rem 0;
   }
 .update_quantity:hover {

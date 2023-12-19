@@ -1,11 +1,16 @@
+
+<?php 
+session_start();
+include_once('../dbconn.php');
+if (!isset($_SESSION['user_name'])) {
+    header('location:login.php');
+}
+?>
+
 <?php
 include_once "../dbconn.php";
 if (isset($_POST['submit'])) {
-    $product_name = $_POST['product_name'];
-    $product_image = $_POST['product_image'];
-    $product_quantity = $_POST['product_quantity'];
-    $product_price = $_POST['product_price'];
-    $product_subtotal = $_POST['product_subtotal'];
+    $grand_total = $_POST['grand_total'];
     $full_name = $_POST['full_name'];
     $email = $_POST['email'];
     $dob = $_POST['dob'];
@@ -14,9 +19,8 @@ if (isset($_POST['submit'])) {
     $card_num = $_POST['card_num'];
     $card_cvc = $_POST['card_cvc'];
     $transection_date = $_POST['transection_date'];
-    $sql = "INSERT INTO checkouts (product_name,product_image,product_quantity,product_price,product_subtotal,
-    full_name,email,dob,gender,pay,card_num,card_cvc,transection_date) VALUES ('$product_name','$product_image','$product_quantity','$product_price','$product_subtotal',
-    '$full_name','$email','$dob','$gender','$pay','$card_num','$card_cvc','$transection_date')";
+     $sql ="INSERT INTO checkouts(grand_total,full_name,email,dob,gender,pay,card_num,card_cvc,transection_date) 
+        VALUES('$grand_total','$full_name','$email','$dob','$gender','$pay','$card_num','$card_cvc','$transection_date')";
     $result = mysqli_query($conn, $sql);
     if($result){
         echo "<script>alert('Payment Successfully')</script>";
@@ -51,7 +55,7 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Hello, world!</title>
+        <title>Smart Home Service</title>
 </head>
 
 <body>
@@ -105,11 +109,7 @@ if (isset($_POST['submit'])) {
                                         <?php echo $subtotal = number_format($row['price'] * $row['quantity']) ?>/-
                                     </td>
 
-                                    <input type="hidden" name="product_name" value="<?= $row['title'] ?>">
-                                    <input type="hidden" name="product_image" value="<?= $row['image'] ?>">
-                                    <input type="hidden" name="product_quantity" value="<?= $row['quantity'] ?>">
-                                    <input type="hidden" name="product_price" value="<?= $row['price'] ?>">
-                                    <input type="hidden" name="product_subtotal" value="<?= $subtotal ?>">
+                                   
                                 </tr>
 
                             </tbody>
@@ -167,7 +167,12 @@ if (isset($_POST['submit'])) {
                         <input type="radio" name="pay" id="bc1" checked class="radio">
                         <label for="bc1"><span><i class="fa-brands fa-cc-visa"></i>Credit Card</span></label>
                         <input type="radio" name="pay" id="bc2" class="radio">
-                        <label for="bc2"><span><i class="fa-brands fa-cc-paypal"></i>Paypal</span></label>
+                        <label for="bc2"><span><i class="fa-solid fa-paper-plane"></i>Bikash</span></label>
+                        <input type="radio" name="pay" id="bc3" class="radio">
+                        <label for="bc3"><span><i class="fa-solid fa-sack-dollar"></i>Nogod</span></label>
+                        <input type="radio" name="pay" id="bc4" class="radio">
+                        <label for="bc4"><span><i class="fa-solid fa-hand-holding-dollar"></i>Cash On Dev</span></label>
+
                     </div>
                 </div>
 
@@ -188,6 +193,7 @@ if (isset($_POST['submit'])) {
                         <input type="date" class="date" name="transection_date">
                     </div>
                 </div>
+                <input type="hidden" name="grand_total" value="<?= $grand_total?>">
                 <div class="payment-input-group">
                     <div class="payment-input-box">
                         <button type="submit" name="submit">Pay Now</button>

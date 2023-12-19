@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Hello, world!</title>
+        <title>Smart Home Service</title>
 </head>
 
 <body>
@@ -27,28 +27,29 @@
                 <h1>Products</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
             </div>
-            <div class="card-section">
-             <?php 
-             include_once "../dbconn.php";
-             $categoryId = $_GET['category_id'];
+            <div class="card-section-item">
+                <?php
+                include_once "../dbconn.php";
+                $categoryId = $_GET['category_id'];
                 $sql = "SELECT * FROM products WHERE category_id = $categoryId";
 
-             $result = mysqli_query($conn, $sql);
-             while($row = mysqli_fetch_assoc($result)){  
-         ?>
+                $result = mysqli_query($conn, $sql);
+                while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
 
-         <div class="product-card">
-             <div class="card-img">
-                 <img src="<?=$row['image']?>" alt="">
-             </div>
-             <div class="product-card-content">
-                 <h3><?=$row['title']?></h3>
-                 <p class="description">Price=<?=$row['price']?>/-</p>
-                 <a href="" class="card-btn">Add to cart</a>
-             </div>
-         </div>
+                <div class="product-card-item">
+                    <div class="card-img-item">
+                        <img src="<?= $row['image'] ?>" alt="">
+                    </div>
+                    <div class="product-card-content-item">
+                        <h3><?= $row['title'] ?></h3>
+                        <p class="description-item">Price=<?= $row['price'] ?>/-</p>
+                        <a href="detail.php?id=<?= $row['id'] ?>" class="card-btn-item">Show Details</a>
+                    </div>
+                </div>
 
-         <?php } ?>
+
+                <?php } ?>
             </div>
 
 

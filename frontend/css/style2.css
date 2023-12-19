@@ -5,7 +5,84 @@
     font-family: 'Poppins', sans-serif;
 }
 body{
+   
+   
     background: #f2f2f2;
+}
+
+.header{
+    width: 100%;
+    height: 50px;
+    background-color: #325ed8;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
+
+
+    
+
+}
+.serch{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-right: 30px;
+}
+.serch form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.serch form input{
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    padding: 0 10px;
+    font-size: 16px;
+}
+.serch form button{
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background: #fff;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.logo-section{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 20px;
+}
+.logo-section h3{
+	color: #fff;
+	font-size: 20px;
+}
+.header-logo {
+    width: 50px;
+    height: 40px;
+    padding: 5px;
+    
+}
+.header-nav{
+    margin-right: 50px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
 .menu-ber{
     background: #3586ff;
@@ -343,85 +420,68 @@ body{
 	font-size: 20px;
 	color: #000;
 }
-.product-card{
-	position: relative;
+.product-card-item{
+    position: relative;
 	width: 320px;
 	height: 420px;
-	background: #122936;
+	background: #0a2830;
 	border-radius: 20px;
 	overflow: hidden;
-}
-.product-card::before{
-	content: '';
-	position: absolute;
-	top: -50%;
-	width: 100%;
-	height: 100%;
-	background: #2196f3;
-	transform: skewY(345deg);
-	transition: 0.5s;
 
 }
-
-.product-card::after{
-	content: 'Labuni';
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	font-weight: 600;
-	font-size: 6em;
-	color: rgba(5, 5, 5, 0.233);
-
+.product-card-item:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 15px 45px  rgba(0,0,0,0.2);
 }
-.card-img{
-	position: relative;
+.card-img-item{
+    position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	width: 100%;
 	padding-top: 20px;
 	z-index: 1;
+
 }
-.card-img img{
-    width: 200px;
+.card-img-item img{
+    max-width: 100%;
     height: 200px;
+	transition: 0.5s;
     border-radius: 50%;
-    border: 5px solid #fff;
 }
-.product-card-content{
-	position: relative;
-	padding: 20px;
+.product-card-content-item{
+    position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 	z-index: 1;
 }
-.product-card-content h3{
+.product-card-content-item h3{
 	font-size: 24px;
 	color: #fff;
 	font-weight: 500;
 	text-transform: uppercase;
-    text-align: center;
 }
-.description{
-	font-size: 18px;
+.product-card-content-item .description-item{
+    font-size: 18px;
 	color: #fff;
 	text-align: center;
 }
-.card-btn{
+.product-card-content-item .card-btn-item{
 	position: relative;
-	padding: 10px 30px;
+    display: inline-block;
+    padding: 0 30px;
 	text-decoration: none;
 	color: #fff;
 	border-radius: 30px;
 	background-color: #2196f3;
 }
-.card-btn:hover{
-	top : 0;
-	opacity: 1;
+.product-card-content-item .card-btn-item:hover{
+    top : 0;
+    opacity: 1;
 }
-.card-section{
+.card-section-item{
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -429,6 +489,6 @@ body{
 	flex-direction: row;
 	gap: 24px;
 }
+/* end product */
 
-/* service end */
-
+/* product-detail */

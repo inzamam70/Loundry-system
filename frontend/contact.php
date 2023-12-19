@@ -33,7 +33,7 @@ if(isset($_POST['submit'])){
     <link rel="stylesheet" href="./css/style2.css">
     <link rel="stylesheet" href="./css/about.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Hello, world!</title>
+    <title>Smart Home Service</title>
 </head>
 
 <body>
@@ -63,7 +63,7 @@ if(isset($_POST['submit'])){
                 <div class="icon"><i class="fa-solid fa-envelope"></i></div>
                 <div class="text">
                     <h2>Email</h2>
-                    <p>70inzamam.sentinel@gmail.com</p>
+                    <p>lova@gmail.com</p>
                 </div>
             </div>
             <div class="box">

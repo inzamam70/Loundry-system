@@ -1,27 +1,32 @@
-<?php
-require_once("../dbconn.php");
-if(isset($_POST["login"])){
-    $email=$_POST["email"];
-    $password=$_POST["password"];
-    $sql="SELECT * FROM `users` WHERE `email`='$email' AND `password`='$password'";
-    $result=mysqli_query($conn,$sql);
-    if(mysqli_num_rows($result)>0){
-        $row=mysqli_fetch_assoc($result);
-        session_start();
-        $_SESSION["id"]=$row["id"];
-        $_SESSION["name"]=$row["name"];
-        $_SESSION["email"]=$row["email"];
-        $_SESSION["phone"]=$row["phone"];
-        $_SESSION["address"]=$row["address"];
-        $_SESSION["password"]=$row["password"];
-        header("Location:../admin.php");
-    }
-    else{
-        echo "<script>alert('Login Failed')</script>";
-    }
-}
-?>
+<?php 
+session_start();
+include_once '../dbconn.php';
+if (isset($_POST['submit'])) {
 
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $pass = md5($_POST['password']);
+
+    $select = " SELECT * FROM users WHERE email = '$email' && password = '$pass' ";
+
+    $result = mysqli_query($conn, $select);
+
+    if (mysqli_num_rows($result) > 0) {
+
+        $row = mysqli_fetch_array($result);
+       
+        if ($row['user_type'] == 'admin') {
+            $_SESSION['admin_name'] = $row['name'];
+            header('location:../admin.php');
+        } else {
+            $_SESSION['user_name'] = $row['name'];
+            header('location:payment.php');
+        }
+    } else {
+        $error[] = 'incorrect email or password!';
+    }
+};
+
+?>
 
 
 <!DOCTYPE html>
@@ -31,7 +36,7 @@ if(isset($_POST["login"])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Smart Home Service</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
@@ -49,41 +54,43 @@ if(isset($_POST["login"])){
     <!-- nav end -->
     <!-- login -->
 
-    <section>
-        <div class="login-box">
-        
-            <form action="login.php" method="post">
-                <h1>Login Here</h1>
+    <div class="log-body">
 
-                <div class="input-box">
-                    <i class="fa-regular fa-envelope"></i>
-                    <input type="email" placeholder="Enter your email.." name="email" />
+        <form action="" class="form" method="post">
+
+            <span></span>
+
+            <span></span>
+
+            <span></span>
+
+            <span></span>
+
+            <div class="form-inner">
+
+                <h2>Login</h2>
+
+                <div class="content">
+
+                   
+
+                    <input class="input" type="email" name="email" placeholder="Email" />
+
+                    <input class="input" type="password" name="password" placeholder="Password" />
+                    <div class="login-register">
+                                <label><input type="checkbox">Remember me</label>
+                                <a href="">Forgot Password?</a>
+                            </div>
+                    <button type="submit" name="submit" class="btn">Sign In</button>
+                    <div class="login-register">
+                    <p>Don't have anaccount? <a href="./registration.php" class="register-link">Sign up</a></p>
+                    </div>
                 </div>
-                <div class="input-box">
-                    <i class="fa-solid fa-lock"></i>
-                    <input type="password" placeholder="Enter your password.." name="password" />
-                </div>
-                <div class="forget">
-                    <label for=""><input type="checkbox">Remember me <a href="">Forget Password</a></label>
 
-                </div>
-                <div class="form-btn">
-                    <input type="submit" value="Login" name="login" class="btn btn-primary" style="width: 100%;">
-                </div>
-                <div class="register">
-                    <p>Don't have a account <a href="./registration.php">Register Here</a></p>
-                </div>
+            </div>
 
-
-
-
-            </form>
-
-
-        </div>
-
-
-    </section>
+        </form>
+    </div>
 
     <!-- login end -->
 

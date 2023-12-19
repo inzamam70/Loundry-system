@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,35 +13,30 @@
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <title>Hello, world!</title>
+    <title>Smart Home Service</title>
 </head>
 
 <body>
     <!-- header -->
     <div class="header">
+
+
         <div>
             <img src="./image/londrylogo.png" alt="" class="img">
+
         </div>
-        <h4 class="header-item">Admin DashBoard</h4>
+
+        <div class="header-item" style="display:flex;gap:10px;justify-content:space-between;">
+
+            <h3>Welcome
+                <?php echo $_SESSION['admin_name']; ?>
+            </h3>
+        </div>
+
         <div class="header-item">
-            <?php 
-                include_once "../dbconn.php";
-                if(isset($_SESSION['id'])){
-                   $user_id = $_SESSION['id'];
-                }else{
-                    $user_id = "";
-                }
-                $sql = "SELECT * FROM users WHERE id = '$user_id'";
-                $result = mysqli_query($conn, $sql);
-                while($row = mysqli_fetch_assoc($result)){
-                   ?>
-                   <a href=""><i class="fa-solid fa-user"></i><?=$row['name']?></a>
-                     <?php
-                }
-            ?>
-            <a href="./logout.php"><i class="fa-solid fa-power-off"></i></a>
-            
+            <a href="logout.php"><i class="fa-solid fa-power-off"></i></a>
         </div>
+
     </div>
 
     <!-- nav item -->
@@ -141,8 +137,7 @@
                                     <th>Sl</th>
                                     <th>Name</th>
                                     <th>Email</th>
-                                    <th>Phone No</th>
-                                    <th>Address</th>
+                                    <th>User-Type</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -160,8 +155,7 @@
                                         <td><?php echo $id++ ?></td>
                                         <td><?php echo $row['name'] ?></td>
                                         <td><?php echo $row['email'] ?></td>
-                                        <td><?php echo $row['phone'] ?></td>
-                                        <td><?php echo $row['address'] ?></td>
+                                        <td><?php echo $row['user_type'] ?></td>
                                         <td>
                                             <div class="action-btn">
                                                 <a href="./editslider.php?id=<?php echo $row['id'] ?>" class="btn btn-primary"><i class="fa-solid fa-pen-nib"></i></a>

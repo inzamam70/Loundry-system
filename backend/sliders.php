@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,40 +8,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <link rel="stylesheet" href="./css/slider.css">
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <title>Hello, world!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>Smart Home Service</title>
 </head>
 
 <body>
     <!-- header -->
     <div class="header">
+
+
         <div>
             <img src="./image/londrylogo.png" alt="" class="img">
+
         </div>
-        <h4 class="header-item">Admin DashBoard</h4>
+
+        <div class="header-item" style="display:flex;gap:10px;justify-content:space-between;">
+
+            <h3>Welcome
+                <?php echo $_SESSION['admin_name']; ?>
+            </h3>
+        </div>
+
         <div class="header-item">
-            <?php 
-                include_once "../dbconn.php";
-                if(isset($_SESSION['id'])){
-                   $user_id = $_SESSION['id'];
-                }else{
-                    $user_id = "";
-                }
-                $sql = "SELECT * FROM users WHERE id = '$user_id'";
-                $result = mysqli_query($conn, $sql);
-                while($row = mysqli_fetch_assoc($result)){
-                   ?>
-                   <a href=""><i class="fa-solid fa-user"></i><?=$row['name']?></a>
-                     <?php
-                }
-            ?>
-            <a href="./logout.php"><i class="fa-solid fa-power-off"></i></a>
-            
+            <a href="logout.php"><i class="fa-solid fa-power-off"></i></a>
         </div>
+
     </div>
 
     <!-- nav item -->
@@ -153,24 +151,32 @@
                                 $result = mysqli_query($conn, $sql);
                                 $id = 1;
                                 while ($row = mysqli_fetch_assoc($result)) {
-                                ?>
+                                    ?>
 
 
                                     <tr>
-                                        <td><?php echo $id++ ?></td>
-                                        <td><?php echo $row['title'] ?></td>
-                                        <td><?php echo $row['description'] ?></td>
+                                        <td>
+                                            <?php echo $id++ ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row['title'] ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row['description'] ?>
+                                        </td>
                                         <td><img src="<?php echo $row['image'] ?> " width='100px' height='70px'></td>
                                         <td>
                                             <div class="action-btn">
-                                                <a href="./editslider.php?id=<?php echo $row['id'] ?>" class="btn btn-primary"><i class="fa-solid fa-pen-nib"></i></a>
-                                                <a href="./deleteslider.php?id=<?php echo $row['id'] ?>" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                                                <a href="./editslider.php?id=<?php echo $row['id'] ?>"
+                                                    class="btn btn-primary"><i class="fa-solid fa-pen-nib"></i></a>
+                                                <a href="./deleteslider.php?id=<?php echo $row['id'] ?>"
+                                                    class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
 
                                             </div>
 
                                         </td>
                                     </tr>
-                                <?php
+                                    <?php
                                 }
                                 ?>
                             </tbody>
@@ -199,7 +205,9 @@
     <!-- footer  -->
     <?php include('./backend-component/footer.php') ?>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

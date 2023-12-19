@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 08, 2023 at 04:11 PM
+-- Generation Time: Oct 02, 2023 at 01:35 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.2.7
 
@@ -20,6 +20,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `loundry_system`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `carts`
+--
+
+CREATE TABLE `carts` (
+  `id` int NOT NULL,
+  `title` varchar(225) NOT NULL,
+  `price` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `quantity` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `carts`
+--
+
+INSERT INTO `carts` (`id`, `title`, `price`, `image`, `quantity`) VALUES
+(2, 'Eius lorem quia haru', '195', '../uploads/drying.png', 5),
+(3, 'Excepturi cum non ut', '39', '../uploads/car wash.jpg', 1),
+(4, 'Sed quia facilis mol', '992', '../uploads/_MG_7921.jpg', 5),
+(5, 'hi               ', '190                                            ', '../uploads/project-1.jpg', 1),
+(6, 'Anim aliquid incidun', '272', '../uploads/car-service.png', 1);
 
 -- --------------------------------------------------------
 
@@ -49,6 +74,37 @@ INSERT INTO `categories` (`id`, `name`, `description`, `image`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `checkouts`
+--
+
+CREATE TABLE `checkouts` (
+  `id` int NOT NULL,
+  `product_name` varchar(225) NOT NULL,
+  `product_image` varchar(255) NOT NULL,
+  `product_quantity` int NOT NULL,
+  `product_price` varchar(255) NOT NULL,
+  `product_subtotal` varchar(255) NOT NULL,
+  `full_name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `dob` date NOT NULL,
+  `gender` varchar(255) NOT NULL,
+  `pay` varchar(255) NOT NULL,
+  `card_num` varchar(255) NOT NULL,
+  `card_cvc` varchar(255) NOT NULL,
+  `transection_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `checkouts`
+--
+
+INSERT INTO `checkouts` (`id`, `product_name`, `product_image`, `product_quantity`, `product_price`, `product_subtotal`, `full_name`, `email`, `dob`, `gender`, `pay`, `card_num`, `card_cvc`, `transection_date`) VALUES
+(1, 'hi               ', '../uploads/project-1.jpg', 1, '190                                            ', '190', 'Inzamam Islam Raj', 'raj@gmail.com', '2023-09-23', 'on', 'on', '46546514657469854', 'inzamam', '2023-09-22'),
+(2, 'Anim aliquid incidun', '../uploads/car-service.png', 1, '272', '272', 'lova', 'lova@gmail.com', '2023-09-05', 'on', 'on', '4657498321', 'lova', '2023-09-22');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `contacts`
 --
 
@@ -68,6 +124,77 @@ INSERT INTO `contacts` (`id`, `name`, `email`, `massage`) VALUES
 (5, 'lova', 'lova@gmail.com', 'vaiya plz help me....'),
 (6, 'lova', 'lova@gmail.com', 'vaiya plz help me....'),
 (7, 'Raj', 'raj@gmail.com', 'feuiyi9ohyei9othygioewiotg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `permissions`
+--
+
+CREATE TABLE `permissions` (
+  `id` int NOT NULL,
+  `name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `products`
+--
+
+CREATE TABLE `products` (
+  `id` int NOT NULL,
+  `category_id` int NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `price` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `category_id`, `title`, `price`, `image`) VALUES
+(12, 4, 'Eius lorem quia haru', '195', '../uploads/drying.png'),
+(13, 5, 'Animi aliquid ut en', '123', '../uploads/ironing.png'),
+(14, 6, 'Eveniet odit possim', '50', '../uploads/houseclean.jpg'),
+(15, 7, 'Anim aliquid incidun', '272', '../uploads/car-service.png'),
+(16, 8, 'Autem consequuntur c', '155', '../uploads/lpg.jpg'),
+(17, 5, 'Et aliquid minim qui', '321', '../uploads/iron.png'),
+(18, 7, 'Excepturi cum non ut', '39', '../uploads/car wash.jpg'),
+(19, 3, 'Earum dolorem iure s', '407', '../uploads/gg.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `roles`
+--
+
+CREATE TABLE `roles` (
+  `id` int NOT NULL,
+  `name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`id`, `name`) VALUES
+(2, 'Super-admin'),
+(3, 'admin'),
+(4, 'user');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `role_permissions`
+--
+
+CREATE TABLE `role_permissions` (
+  `id` int NOT NULL,
+  `role_id` int DEFAULT NULL,
+  `permission_id` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -124,9 +251,21 @@ INSERT INTO `users` (`id`, `name`, `email`, `phone`, `address`, `password`) VALU
 --
 
 --
+-- Indexes for table `carts`
+--
+ALTER TABLE `carts`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `checkouts`
+--
+ALTER TABLE `checkouts`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -134,6 +273,33 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `permissions`
+--
+ALTER TABLE `permissions`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `category_id` (`category_id`);
+
+--
+-- Indexes for table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `role_permissions`
+--
+ALTER TABLE `role_permissions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `role_id` (`role_id`),
+  ADD KEY `permission_id` (`permission_id`);
 
 --
 -- Indexes for table `sliders`
@@ -152,16 +318,52 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `carts`
+--
+ALTER TABLE `carts`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT for table `checkouts`
+--
+ALTER TABLE `checkouts`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `permissions`
+--
+ALTER TABLE `permissions`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT for table `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `role_permissions`
+--
+ALTER TABLE `role_permissions`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `sliders`
@@ -174,6 +376,23 @@ ALTER TABLE `sliders`
 --
 ALTER TABLE `users`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `products`
+--
+ALTER TABLE `products`
+  ADD CONSTRAINT `category_id` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `role_permissions`
+--
+ALTER TABLE `role_permissions`
+  ADD CONSTRAINT `role_permissions_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`),
+  ADD CONSTRAINT `role_permissions_ibfk_2` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

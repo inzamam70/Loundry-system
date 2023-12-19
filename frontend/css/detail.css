@@ -1,0 +1,315 @@
+
+.detail-card{
+    display: flex;
+    align-items: center;
+    /* background: #252831 url(https://www.dropbox.com/s/fuadz3vmw2nsylm/bg.png?raw=1)
+      no-repeat; */
+    height: 600px;
+    width: 800px;
+    margin: 0 auto;
+    margin-top: 2%;
+}
+i.fa.fa-search {
+  margin-left: 90px;
+}
+.detail-card .left{
+    content: "";
+    height: 600px;
+    width: 330px;
+    display: flex;
+    align-items: center;
+    background-color: #ff6d39;
+    margin-left: 93px;
+    border-radius: 0% 50% 50% 0%;
+    position: absolute;
+    z-index: 5;
+}
+.detail-card .left img{
+    height: 250px;
+    width: 250px;
+   border-radius: 50%;
+    margin-left: 40px;
+    transition: 0.3s all ease;
+}
+.detail-card .right{
+    content: "";
+    height: 600px;
+    width: 550px;
+    background-color: #2a2f40;
+    z-index: 3;
+    margin-left: 200px;
+}
+.detail-product-info{
+    position: absolute;
+    margin-left: 245px;
+    height: 394px;
+    width: 305px;
+    z-index: 10;
+}
+.detail-card .left i{
+    color: #ffd5c6;
+    margin-top: 260px;
+    transition: 0.3s all ease;
+}
+.detail-card .left i:hover{
+    cursor: pointer;
+    color: #2a2f40;
+}
+.fa-long-arrow-left {
+    margin-left: -275px;
+  }
+  
+  .fa-long-arrow-right {
+    margin-left: 15px;
+  }
+  .foot {
+    color: #ffffff;
+    background: #f76b39;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-family: "muli";
+    margin-top: 20px;
+    margin-right: 50px;
+    font-weight: 500;
+    font-size: 20px;
+    float: left;
+    transition: 0.3s all ease;
+  }
+  
+  .foot i:nth-child(1) {
+    margin-left: 0;
+    margin-right: 15px;
+  }
+  
+  .foot:hover {
+    color: #000000;
+    cursor: pointer;
+  }
+  .bg {
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    padding: 2px;
+    margin-right: 20px;
+    transition: 0.3s all ease;
+    border-radius: 50%;
+  }
+  
+  .bg:hover {
+    background-color: #ff6d39;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+  }
+  
+  .yellow {
+    content: "";
+    width: 13px;
+    height: 13px;
+    background-color: #fec60f;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 0, 0, 0);
+    transition: 0.3s all ease;
+  }
+  
+  .black {
+    content: "";
+    width: 13px;
+    height: 13px;
+    background-color: #000000;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 0, 0, 0);
+    transition: 0.3s all ease;
+  }
+  
+  .blue {
+    content: "";
+    width: 13px;
+    height: 13px;
+    background-color: #02a2ca;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 0, 0, 0);
+    transition: 0.3s all ease;
+  }
+  
+  .yellow:hover,
+  .black:hover,
+  .blue:hover {
+    border: 2px solid #f76b39;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .discount {
+    display: inline-block;
+  }
+
+  
+ .detail-details h2 {
+    color: #ffffff;
+    font-family: "muli";
+    margin-top: 10px;
+    font-weight: 800;
+    font-size: 29px;
+  }
+  
+.detail-details  h4 {
+    display: inline-block;
+    color: #ffffff;
+    font-family: "muli";
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+
+
+.detail-product-name i{
+    color: #ffffff;
+    transition: 0.3s all ease;
+    margin: 0px 12px;
+}  
+.detail-product-name h1 {
+    color: #ff6d39;
+    font-family: "muli";
+    font-weight: bold;
+    font-size: 22px;
+    margin-top: 21px;
+    display: inline-block;
+  }
+
+.detail-product-name i:hover{
+    color: #ff6d39;
+    cursor: pointer;
+}
+.review{
+    color: #000000;
+    font-family: "muli";
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 21px;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    transition: 0.3s all ease;
+    flex-direction: column;
+
+}
+.review form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: #c7c7c7;
+    padding: 30px 80px;
+    border-radius: 5px;
+
+}
+.review form input{
+    width: 350px;
+    height: 40px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding-left: 10px;
+    transition: 0.3s all ease;
+    border: 1px solid #ffbca3;
+}
+.review form input:focus{
+    border: 2px solid #3978ff;
+    transition: 0.3s all ease;
+}
+.review textarea{
+    width: 350px;
+    height: 100px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding-left: 10px;
+    transition: 0.3s all ease;
+    border: 1px solid #ffbca3;
+}
+.review textarea:focus{
+    border: 2px solid #3978ff;
+    transition: 0.3s all ease;
+}
+.review .btn{
+    color: #ffffff;
+    background: #3978ff;
+    padding: 10px 20px;
+    border-radius: 5px;
+   margin-top: 15px;
+    transition: 0.3s all ease;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+}
+.review-heading{
+    color: #000000;
+    font-family: "muli";
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 21px;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    transition: 0.3s all ease;
+    flex-direction: column;
+    margin-top: 30px;
+}
+.review-heading h1{
+    color: #3978ff;
+    font-weight: 600;
+   
+    margin-top: 21px;
+    display: inline-block;
+}
+.review .review-card{
+   display: grid;
+    grid-template-columns: repeat(2, 1fr);
+   
+    padding: 30px 80px;
+    border-radius: 5px;
+    margin-top: 20px;
+    gap:20px
+}
+.review-card-text{
+    color: #000000;
+    margin-top: 21px;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    transition: 0.3s all ease;
+    flex-direction: column;
+    margin-top: 30px;
+    background: #c7c7c7;
+}
+.review-card-text h1{
+    color: #3978ff;
+    font-weight: 600;
+   
+    margin-top: 21px;
+    display: inline-block;
+}
+.review-card-text p{
+    color: #000000;
+    margin-top: 21px;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    transition: 0.3s all ease;
+    flex-direction: column;
+    margin-top: 30px;
+}
