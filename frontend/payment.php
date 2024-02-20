@@ -125,81 +125,23 @@ if (isset($_POST['submit'])) {
             </div>
 
             <div class="payment-section">
-                <h2>Payment Form</h2>
-
-                <h4>Account</h4>
-                <div class="payment-input-group">
-                    <div class="payment-input-box">
-                        <input type="text" placeholder="Full name" required class="name" name="full_name">
-                        <i class="fa-solid fa-user icon"></i>
-                    </div>
-                </div>
-
-                <div class="payment-input-group">
-                    <div class="payment-input-box">
-                        <input type="email" placeholder="Enter Email" required class="name" name="email">
-                        <i class="fa-solid fa-envelope icon"></i>
-                    </div>
-                </div>
-
-
-
-                <div class="payment-input-group">
-                    <div class="payment-input-box">
-                        <h4>Date of Birth</h4>
-                        <input type="date" class="date" name="dob">
-                    </div>
-
-                    <div class="payment-input-box">
-                        <h4>Gender</h4>
-                        <input type="radio" id="b1" name="gender" checked class="radio">
-                        <label for="b1">Male</label>
-                        <input type="radio" id="b2" name="gender" class="radio">
-                        <label for="b2">Female</label>
-                    </div>
-                </div>
+                <h2>Payment method</h2>
 
 
 
                 <div class="payment-input-group">
                     <div class="payment-input-box">
                         <h4>Payment Details</h4>
-                        <input type="radio" name="pay" id="bc1" checked class="radio">
-                        <label for="bc1"><span><i class="fa-brands fa-cc-visa"></i>Credit Card</span></label>
-                        <input type="radio" name="pay" id="bc2" class="radio">
-                        <label for="bc2"><span><i class="fa-solid fa-paper-plane"></i>Bikash</span></label>
-                        <input type="radio" name="pay" id="bc3" class="radio">
-                        <label for="bc3"><span><i class="fa-solid fa-sack-dollar"></i>Nogod</span></label>
-                        <input type="radio" name="pay" id="bc4" class="radio">
-                        <label for="bc4"><span><i class="fa-solid fa-hand-holding-dollar"></i>Cash On Dev</span></label>
-
+                        <!-- <input type="radio" name="pay" id="bc1" checked class="radio"> -->
+                        <div class="payments-system">
+                        <a href="credit.php" class="payment-button" style="background:#FFFF00;"><span><i class="fa-brands fa-cc-visa"></i>Credit Card</span></a>
+                        <a href="cash.php" class="payment-button" style="background:#ddd;"><span><i class="fa-solid fa-hand-holding-dollar"></i>Cash On</span></a>
+                        <a href="bikash.php" class="payment-button" style="background:#FF007F;"><span><i class="fa-solid fa-paper-plane"></i>Bkash</span></a>
+                        <a href="nogod.php" class="payment-button" style="background:#FF4500;"><span><i class="fa-solid fa-sack-dollar"></i>Nogod</span></a>
+                        </div>
+                        
                     </div>
                 </div>
-
-                <div class="payment-input-group">
-                    <div class="payment-input-box">
-                        <input type="tel" placeholder="Card-Number" required class="name" name="card_num">
-                        <i class="fa-solid fa-credit-card icon"></i>
-                    </div>
-                </div>
-
-                <div class="payment-input-group">
-                    <div class="payment-input-box">
-                        <input type="tel" placeholder="Card CVC" required class="name" style="height: 100%;"
-                            name="card_cvc">
-                        <i class="fa-solid fa-user icon"></i>
-                    </div>
-                    <div class="payment-input-box">
-                        <input type="date" class="date" name="transection_date">
-                    </div>
-                </div>
-                <input type="hidden" name="grand_total" value="<?= $grand_total?>">
-                <div class="payment-input-group">
-                    <div class="payment-input-box">
-                        <button type="submit" name="submit">Pay Now</button>
-                    </div>
-                </div>
-
                 </form>
 
             </div>

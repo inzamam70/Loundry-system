@@ -32,7 +32,30 @@
                     <h3>How do I order?</h3>
                 </label>
                 <div class="faq-content">
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam, veritatis.</p>
+                    <p>1.Visit Our Website or App
+                        <br>
+                        2.Sign In or Create an Account
+                        <br>
+                        3.Browse Services
+                        <br>
+                        4.Select Your Service
+                        <br>
+                        5.Choose Date and Time
+                        <br>
+                        6.Provide Location Details
+                        <br>
+                        7.Review Order Summary
+                        <br>
+                        8.Add Special Instructions (if any)
+                        <br>
+                        9.Proceed to Checkout
+                        <br>
+                        10.Choose Payment Method
+                        <br>
+                        11.Confirm and Place Order
+                        <br>
+                        12.Receive Order Confirmation
+                    </p>
                 </div>
             </div>
 
@@ -43,7 +66,20 @@
                     <h3>Lost or forgotten your password?</h3>
                 </label>
                 <div class="faq-content">
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam, veritatis.</p>
+                    <p>
+                        1.Visit the Login Page
+                        <br>
+                        2.Click on the Forgot Password link
+                        <br>
+                        3.Enter your registered email address
+                        <br>
+                        4.Click on the Send Reset Link button
+                        <br>
+                        5.Check your email inbox for the password reset link
+                        <br>
+                        6.Click on the link and follow the instructions to reset your password
+
+                    </p>
                 </div>
             </div>
 
@@ -54,7 +90,18 @@
                     <h3>How can I make a change to my  applications?</h3>
                 </label>
                 <div class="faq-content">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam eligendi nesciunt sint rerum excepturi delectus!</p>
+                    <p>
+                        1.Log In
+                        <br>
+                        2.Locate Your order
+                        <br>
+                        3.Click on the Change button
+                        <br>
+                        4.Make the desired changes
+                        <br>
+                        5.Click on the Update button
+                        
+                    </p>
                 </div>
             </div>
 

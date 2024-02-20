@@ -1,3 +1,31 @@
+<?php 
+include_once "../dbconn.php";
+if(isset($_POST['add-to-cart'])){
+    $product_name = $_POST['product_name'];
+    $product_price = $_POST['product_price'];
+    $product_image = $_POST['product_image'];
+    $product_quantity = 1;
+    $select_sql = "SELECT * FROM carts WHERE title = '$product_name'";
+    $select_result = mysqli_query($conn, $select_sql);
+    $select_count = mysqli_num_rows($select_result);
+    if($select_count > 0){
+        echo "<script>alert('Product Already Added')</script>";
+        echo "<script>window.location.href = './cart.php'</script>";
+    }else{
+        $sql = "INSERT INTO carts (title, price, image, quantity) VALUES ('$product_name', '$product_price', '$product_image', '$product_quantity')";
+        $result = mysqli_query($conn, $sql);
+        if($result){
+            echo "<script>alert('Product Added Successfully')</script>";
+            echo "<script>window.location.href = './cart.php'</script>";
+        }else{
+            echo "<script>alert('Product Added Failed')</script>";
+            echo "<script>window.location.href = './cart.php'</script>";
+        }
+    }
+}
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -26,7 +54,7 @@
         <div class="service">
             <div class="service-heading">
                 <h1>Product Details</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+                <p></p>
             </div>
             <div class="card-section">
                 <?php
@@ -38,6 +66,9 @@
                 while ($row = mysqli_fetch_assoc($result)) {
                     ?>
                     <div class="detail-card">
+                        <form action="" method="post">
+                        <input type="hidden" name="update_quantity_id" value="<?=$row['id']?>">
+
                         <div class="left">
                             <img src="<?= $row ['image']?>" alt="shoe" >
                         </div>
@@ -59,19 +90,25 @@
                                 </div>
                            
                                 <div class="detail-details">
+
                                     <h2><?= $row['title']?></h2>
                                     <h4 style="color:aqua;"><span class="fa fa-dollar"></span><?= $row['price']?>/-</h4>
-                                    <p style="color:aliceblue;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi tempore quidem quae ipsa facilis voluptates expedita laboriosam aut eaque error ducimus, maiores doloremque, odio unde temporibus accusantium dolore. Asperiores, odit!</p>
+                                   <p style="color:white;"> This is our one of the best service that is available now for the respective customers . By this service we want to earn the satisfying review from our honourable customers and make them happy.</p>
                                     <br>
                                     <h4>Product Qr Code</h4>
                                     <br>
                                     <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=<?= $row['title']?>  <?= $row['price']?>" alt="">
                                    
                                 </div>
-                                <a href="shop.php" ><span class="foot"><i class="fa fa-shopping-cart"></i>Shop It</span></a>
+                                <input type="hidden" name="product_name" value="<?=$row['title']?>">
+                                <input type="hidden" name="product_price" value="<?=$row['price']?>">
+                                <input type="hidden" name="product_image" value="<?=$row['image']?>">
+                                <input type="submit" name="add-to-cart" class="foot" value="Add to Cart">
                                 
                             </div>
                         </div>
+                        </form>
+                
                     </div>
 
 

@@ -50,7 +50,6 @@ if (isset($_GET['remove'])) {
         <div class="service">
             <div class="service-heading">
                 <h1>My Cart</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
             </div>
             <div class="card-section">
 

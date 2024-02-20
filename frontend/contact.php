@@ -47,7 +47,7 @@ if(isset($_POST['submit'])){
     <div class="contact-content">
         <h2>Contact Us</h2>
         <div class="contact-divider"></div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+        <p>This is our contact us page. By this page customers can easily contact with us for any kinds of problems about services or products immidiately.</p>
 
     </div>
     <div class="contact-container">

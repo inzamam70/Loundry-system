@@ -29,7 +29,6 @@
     background-color: #fff;
     width: 100%;
     padding: 25px;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px;
     margin-top: 80px;
     margin-bottom: 140px;
     height: 753px;
@@ -86,7 +85,6 @@
     background-color: #fff;
     width: 500px;
     padding: 25px;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     margin-top: 80px;
     margin-bottom: 140px;
 }
@@ -235,4 +233,19 @@ button:hover{
     background-color: #060038;
     transition: 0.5s;
     color: white;
+}
+.payment-button{
+    text-decoration: none;
+    color: #000000;
+    font-size: 20px;
+    letter-spacing: 1px;
+    border: 1px solid #000033;
+    padding: 15px;
+    border-radius: 4px;
+}
+.payments-system{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 10px;
+    column-gap: 5px;
 }

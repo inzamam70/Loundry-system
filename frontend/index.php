@@ -75,7 +75,9 @@
     <div class="service-heading">
       <h1>Our Services</h1>
       <div class="service-devider"></div>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptates.</p>
+      <p  style="text-align:center;width:90%;">At the Home Servie Website we understand the demands of modern life and
+         the importance of a well-maintained home. Our comprehensive range of services is designed to simplify your life, 
+         providing convenience and peace of mind.</p>
     </div>
 
     <div class="service-body">
